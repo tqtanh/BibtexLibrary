@@ -4,6 +4,7 @@ using BibtexLibrary;
 using BibtexLibrary.Parser;
 using BibtexLibrary.Tokenizer;
 using NUnit.Framework;
+using NUnit.Framework.Legacy;
 
 namespace BibtexImporter.Tests
 {
@@ -19,12 +20,12 @@ namespace BibtexImporter.Tests
             BibtexParser parser = new BibtexParser(tokenizer);
             BibtexFile file = parser.Parse();
 
-            Assert.AreEqual(1, file.Entries.Count);
-            Assert.AreEqual("aaker:1912", file.Entries.First().Key);
-            Assert.AreEqual("book", file.Entries.First().Type);
-            Assert.AreEqual(1, file.Entries.First().Tags.Count);
-            Assert.AreEqual("author", file.Entries.First().Tags.First().Key);
-            Assert.AreEqual("David A. Aaker", file.Entries.First().Tags.First().Value);
+            ClassicAssert.AreEqual(1, file.Entries.Count);
+            ClassicAssert.AreEqual("aaker:1912", file.Entries.First().Key);
+            ClassicAssert.AreEqual("book", file.Entries.First().Type);
+            ClassicAssert.AreEqual(1, file.Entries.First().Tags.Count);
+            ClassicAssert.AreEqual("author", file.Entries.First().Tags.First().Key);
+            ClassicAssert.AreEqual("David A. Aaker", file.Entries.First().Tags.First().Value);
         }
 
         [Test]
@@ -37,14 +38,14 @@ namespace BibtexImporter.Tests
             BibtexParser parser = new BibtexParser(tokenizer);
             BibtexFile file = parser.Parse();
 
-            Assert.AreEqual(1, file.Entries.Count);
-            Assert.AreEqual("aaker:1912", file.Entries.First().Key);
-            Assert.AreEqual("book", file.Entries.First().Type);
-            Assert.AreEqual(2, file.Entries.First().Tags.Count);
-            Assert.AreEqual("author", file.Entries.First().Tags.First().Key);
-            Assert.AreEqual("David A. Aaker", file.Entries.First().Tags.First().Value);
-            Assert.AreEqual("title", file.Entries.First().Tags.ToList()[1].Key);
-            Assert.AreEqual("Multivariate statistics", file.Entries.First().Tags.ToList()[1].Value);
+            ClassicAssert.AreEqual(1, file.Entries.Count);
+            ClassicAssert.AreEqual("aaker:1912", file.Entries.First().Key);
+            ClassicAssert.AreEqual("book", file.Entries.First().Type);
+            ClassicAssert.AreEqual(2, file.Entries.First().Tags.Count);
+            ClassicAssert.AreEqual("author", file.Entries.First().Tags.First().Key);
+            ClassicAssert.AreEqual("David A. Aaker", file.Entries.First().Tags.First().Value);
+            ClassicAssert.AreEqual("title", file.Entries.First().Tags.ToList()[1].Key);
+            ClassicAssert.AreEqual("Multivariate statistics", file.Entries.First().Tags.ToList()[1].Value);
         }
 
         [Test]
@@ -56,12 +57,12 @@ namespace BibtexImporter.Tests
             BibtexParser parser = new BibtexParser(tokenizer);
             BibtexFile file = parser.Parse();
 
-            Assert.AreEqual(1, file.Entries.Count);
-            Assert.AreEqual("aaker:1912", file.Entries.First().Key);
-            Assert.AreEqual("book", file.Entries.First().Type);
-            Assert.AreEqual(1, file.Entries.First().Tags.Count);
-            Assert.AreEqual("author", file.Entries.First().Tags.First().Key);
-            Assert.AreEqual("David A. ()ker", file.Entries.First().Tags.First().Value);
+            ClassicAssert.AreEqual(1, file.Entries.Count);
+            ClassicAssert.AreEqual("aaker:1912", file.Entries.First().Key);
+            ClassicAssert.AreEqual("book", file.Entries.First().Type);
+            ClassicAssert.AreEqual(1, file.Entries.First().Tags.Count);
+            ClassicAssert.AreEqual("author", file.Entries.First().Tags.First().Key);
+            ClassicAssert.AreEqual("David A. ()ker", file.Entries.First().Tags.First().Value);
         }
 
         [Test]
@@ -78,22 +79,22 @@ namespace BibtexImporter.Tests
             BibtexParser parser = new BibtexParser(tokenizer);
             BibtexFile file = parser.Parse();
 
-            Assert.AreEqual(2, file.Entries.Count);
-            Assert.AreEqual("aaker:1912", file.Entries.First().Key);
-            Assert.AreEqual("book", file.Entries.First().Type);
-            Assert.AreEqual(2, file.Entries.First().Tags.Count);
-            Assert.AreEqual("author", file.Entries.First().Tags.First().Key);
-            Assert.AreEqual("David A. Aaker", file.Entries.First().Tags.First().Value);
-            Assert.AreEqual("title", file.Entries.First().Tags.ToList()[1].Key);
-            Assert.AreEqual("Multivariate statistics", file.Entries.First().Tags.ToList()[1].Value);
+            ClassicAssert.AreEqual(2, file.Entries.Count);
+            ClassicAssert.AreEqual("aaker:1912", file.Entries.First().Key);
+            ClassicAssert.AreEqual("book", file.Entries.First().Type);
+            ClassicAssert.AreEqual(2, file.Entries.First().Tags.Count);
+            ClassicAssert.AreEqual("author", file.Entries.First().Tags.First().Key);
+            ClassicAssert.AreEqual("David A. Aaker", file.Entries.First().Tags.First().Value);
+            ClassicAssert.AreEqual("title", file.Entries.First().Tags.ToList()[1].Key);
+            ClassicAssert.AreEqual("Multivariate statistics", file.Entries.First().Tags.ToList()[1].Value);
 
-            Assert.AreEqual("baker:1912", file.Entries.ToList()[1].Key);
-            Assert.AreEqual("book", file.Entries.ToList()[1].Type);
-            Assert.AreEqual(2, file.Entries.ToList()[1].Tags.Count);
-            Assert.AreEqual("author", file.Entries.ToList()[1].Tags.First().Key);
-            Assert.AreEqual("David A. Baker", file.Entries.ToList()[1].Tags.First().Value);
-            Assert.AreEqual("title", file.Entries.ToList()[1].Tags.ToList()[1].Key);
-            Assert.AreEqual("Multivariate statistics 2", file.Entries.ToList()[1].Tags.ToList()[1].Value);
+            ClassicAssert.AreEqual("baker:1912", file.Entries.ToList()[1].Key);
+            ClassicAssert.AreEqual("book", file.Entries.ToList()[1].Type);
+            ClassicAssert.AreEqual(2, file.Entries.ToList()[1].Tags.Count);
+            ClassicAssert.AreEqual("author", file.Entries.ToList()[1].Tags.First().Key);
+            ClassicAssert.AreEqual("David A. Baker", file.Entries.ToList()[1].Tags.First().Value);
+            ClassicAssert.AreEqual("title", file.Entries.ToList()[1].Tags.ToList()[1].Key);
+            ClassicAssert.AreEqual("Multivariate statistics 2", file.Entries.ToList()[1].Tags.ToList()[1].Value);
         }
 
 
@@ -107,12 +108,12 @@ namespace BibtexImporter.Tests
             BibtexParser parser = new BibtexParser(tokenizer);
             BibtexFile file = parser.Parse();
 
-            Assert.AreEqual(1, file.Entries.Count);
-            Assert.AreEqual("aaker:1912", file.Entries.First().Key);
-            Assert.AreEqual("book", file.Entries.First().Type);
-            Assert.AreEqual(1, file.Entries.First().Tags.Count);
-            Assert.AreEqual("author", file.Entries.First().Tags.First().Key);
-            Assert.AreEqual("Günther, C.W. and Van Der Aalst, W.M.P.", file.Entries.First().Tags.First().Value);
+            ClassicAssert.AreEqual(1, file.Entries.Count);
+            ClassicAssert.AreEqual("aaker:1912", file.Entries.First().Key);
+            ClassicAssert.AreEqual("book", file.Entries.First().Type);
+            ClassicAssert.AreEqual(1, file.Entries.First().Tags.Count);
+            ClassicAssert.AreEqual("author", file.Entries.First().Tags.First().Key);
+            ClassicAssert.AreEqual("Günther, C.W. and Van Der Aalst, W.M.P.", file.Entries.First().Tags.First().Value);
         }
 
         [Test]
@@ -124,7 +125,7 @@ namespace BibtexImporter.Tests
                 BibtexParser parser = new BibtexParser(tokenizer);
                 BibtexFile file = parser.Parse();
 
-                Assert.AreEqual(3, file.Entries.Count);
+                ClassicAssert.AreEqual(3, file.Entries.Count);
             }
         }
 
@@ -137,12 +138,12 @@ namespace BibtexImporter.Tests
             BibtexParser parser = new BibtexParser(tokenizer);
             BibtexFile file = parser.Parse();
 
-            Assert.AreEqual(1, file.Entries.Count);
-            Assert.AreEqual("aaker:1912", file.Entries.First().Key);
-            Assert.AreEqual("book", file.Entries.First().Type);
-            Assert.AreEqual(1, file.Entries.First().Tags.Count);
-            Assert.AreEqual("author", file.Entries.First().Tags.First().Key);
-            Assert.AreEqual("David A. Aaker", file.Entries.First().Tags.First().Value);
+            ClassicAssert.AreEqual(1, file.Entries.Count);
+            ClassicAssert.AreEqual("aaker:1912", file.Entries.First().Key);
+            ClassicAssert.AreEqual("book", file.Entries.First().Type);
+            ClassicAssert.AreEqual(1, file.Entries.First().Tags.Count);
+            ClassicAssert.AreEqual("author", file.Entries.First().Tags.First().Key);
+            ClassicAssert.AreEqual("David A. Aaker", file.Entries.First().Tags.First().Value);
         }
 
         [Test]
@@ -154,12 +155,12 @@ namespace BibtexImporter.Tests
             BibtexParser parser = new BibtexParser(tokenizer);
             BibtexFile file = parser.Parse();
 
-            Assert.AreEqual(1, file.Entries.Count);
-            Assert.AreEqual("aaker:1912", file.Entries.First().Key);
-            Assert.AreEqual("book", file.Entries.First().Type);
-            Assert.AreEqual(1, file.Entries.First().Tags.Count);
-            Assert.AreEqual("author", file.Entries.First().Tags.First().Key);
-            Assert.AreEqual("David {A.} Aaker", file.Entries.First().Tags.First().Value);
+            ClassicAssert.AreEqual(1, file.Entries.Count);
+            ClassicAssert.AreEqual("aaker:1912", file.Entries.First().Key);
+            ClassicAssert.AreEqual("book", file.Entries.First().Type);
+            ClassicAssert.AreEqual(1, file.Entries.First().Tags.Count);
+            ClassicAssert.AreEqual("author", file.Entries.First().Tags.First().Key);
+            ClassicAssert.AreEqual("David {A.} Aaker", file.Entries.First().Tags.First().Value);
         }
 
         [Test]
@@ -171,12 +172,12 @@ namespace BibtexImporter.Tests
             BibtexParser parser = new BibtexParser(tokenizer);
             BibtexFile file = parser.Parse();
 
-            Assert.AreEqual(1, file.Entries.Count);
-            Assert.AreEqual("aaker:1912", file.Entries.First().Key);
-            Assert.AreEqual("book", file.Entries.First().Type);
-            Assert.AreEqual(1, file.Entries.First().Tags.Count);
-            Assert.AreEqual("author", file.Entries.First().Tags.First().Key);
-            Assert.AreEqual("David {A.} Aaker", file.Entries.First().Tags.First().Value);
+            ClassicAssert.AreEqual(1, file.Entries.Count);
+            ClassicAssert.AreEqual("aaker:1912", file.Entries.First().Key);
+            ClassicAssert.AreEqual("book", file.Entries.First().Type);
+            ClassicAssert.AreEqual(1, file.Entries.First().Tags.Count);
+            ClassicAssert.AreEqual("author", file.Entries.First().Tags.First().Key);
+            ClassicAssert.AreEqual("David {A.} Aaker", file.Entries.First().Tags.First().Value);
         }
 
         [Test]
@@ -190,12 +191,12 @@ namespace BibtexImporter.Tests
             BibtexParser parser = new BibtexParser(tokenizer);
             BibtexFile file = parser.Parse();
 
-            Assert.IsTrue(file.StringDefinitions.ContainsKey("pub-ACM"));
-            Assert.AreEqual("ACM Press", file.StringDefinitions["pub-ACM"]);
+            ClassicAssert.IsTrue(file.StringDefinitions.ContainsKey("pub-ACM"));
+            ClassicAssert.AreEqual("ACM Press", file.StringDefinitions["pub-ACM"]);
 
-            Assert.AreEqual(1, file.Entries.Count);
-            Assert.AreEqual("aaker:1912", file.Entries.First().Key);
-            Assert.AreEqual("book", file.Entries.First().Type);
+            ClassicAssert.AreEqual(1, file.Entries.Count);
+            ClassicAssert.AreEqual("aaker:1912", file.Entries.First().Key);
+            ClassicAssert.AreEqual("book", file.Entries.First().Type);
         }
 
         /**
@@ -209,10 +210,10 @@ namespace BibtexImporter.Tests
             BibtexParser parser = new BibtexParser(tokenizer);
             BibtexFile file = parser.Parse();
 
-            Assert.AreEqual(1, file.Entries.Count);
-            Assert.AreEqual("aaker:1912", file.Entries.First().Key);
-            Assert.AreEqual("book", file.Entries.First().Type);
-            Assert.AreEqual("1234", file.Entries.First().Tags["year"]);
+            ClassicAssert.AreEqual(1, file.Entries.Count);
+            ClassicAssert.AreEqual("aaker:1912", file.Entries.First().Key);
+            ClassicAssert.AreEqual("book", file.Entries.First().Type);
+            ClassicAssert.AreEqual("1234", file.Entries.First().Tags["year"]);
         }
         **/
     }

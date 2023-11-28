@@ -1,13 +1,13 @@
 ﻿using System;
 
-namespace LexicalAnalyzer
+namespace BibtexLibrary.Tokenizer
 {
     public class MatchException : Exception
     {
         private readonly string _character;
         private readonly int _position;
 
-        public MatchException(String character, int position)
+        public MatchException(string character, int position)
         {
             _character = character;
             _position = position;

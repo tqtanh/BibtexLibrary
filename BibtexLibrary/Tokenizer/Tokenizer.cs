@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Text.RegularExpressions;
 using BibtexLibrary.Tokens;
-using LexicalAnalyzer;
 
 namespace BibtexLibrary.Tokenizer
 {

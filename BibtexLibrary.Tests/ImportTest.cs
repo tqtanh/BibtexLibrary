@@ -5,6 +5,7 @@ using System.Linq;
 using BibtexLibrary;
 using BibtexLibrary.Parser.Nodes;
 using NUnit.Framework;
+using NUnit.Framework.Legacy;
 using BibtexFile = BibtexLibrary.BibtexFile;
 
 namespace BibtexImporter.Tests
@@ -25,16 +26,16 @@ namespace BibtexImporter.Tests
                                                                                   topic = {multivariate-statistics;market-research;}
                                                                                  }");
 
-            Assert.AreEqual(1, file.Entries.Count);
-            Assert.AreEqual(file.Entries.ToList()[0].Key, "aaker:1981a");
-            Assert.AreEqual(file.Entries.ToList()[0].Type, "book");
+            ClassicAssert.AreEqual(1, file.Entries.Count);
+            ClassicAssert.AreEqual(file.Entries.ToList()[0].Key, "aaker:1981a");
+            ClassicAssert.AreEqual(file.Entries.ToList()[0].Type, "book");
 
             Dictionary<string, string> tags = file.Entries.ToList()[0].Tags;
-            Assert.AreEqual("David A. Aaker", tags["author"]);
-            Assert.AreEqual("The Scientific Press", tags["publisher"]);
-            Assert.AreEqual("1981", tags["year"]);
-            Assert.AreEqual("multivariate-statistics;market-research;", tags["topic"]);
-            Assert.AreEqual("Multivariate Analysis in Marketing", tags["title"]);
+            ClassicAssert.AreEqual("David A. Aaker", tags["author"]);
+            ClassicAssert.AreEqual("The Scientific Press", tags["publisher"]);
+            ClassicAssert.AreEqual("1981", tags["year"]);
+            ClassicAssert.AreEqual("multivariate-statistics;market-research;", tags["topic"]);
+            ClassicAssert.AreEqual("Multivariate Analysis in Marketing", tags["title"]);
         }
 
         [Test]
@@ -48,16 +49,16 @@ namespace BibtexImporter.Tests
                                                                                       pages =        ""10--13"",
                                                                                     }");
 
-            Assert.AreEqual(1, file.Entries.Count);
-            Assert.AreEqual(file.Entries.ToList()[0].Key, "Martin:1982:CGS");
-            Assert.AreEqual(file.Entries.ToList()[0].Type, "Article");
+            ClassicAssert.AreEqual(1, file.Entries.Count);
+            ClassicAssert.AreEqual(file.Entries.ToList()[0].Key, "Martin:1982:CGS");
+            ClassicAssert.AreEqual(file.Entries.ToList()[0].Type, "Article");
 
             Dictionary<string, string> tags = file.Entries.ToList()[0].Tags;
-            Assert.AreEqual("J. W. Martin", tags["author"]);
-            Assert.AreEqual("Computer Graphics Software Workshop Report", tags["title"]);
-            Assert.AreEqual("1", tags["volume"]);
-            Assert.AreEqual("1", tags["number"]);
-            Assert.AreEqual("10--13", tags["pages"]);
+            ClassicAssert.AreEqual("J. W. Martin", tags["author"]);
+            ClassicAssert.AreEqual("Computer Graphics Software Workshop Report", tags["title"]);
+            ClassicAssert.AreEqual("1", tags["volume"]);
+            ClassicAssert.AreEqual("1", tags["number"]);
+            ClassicAssert.AreEqual("10--13", tags["pages"]);
         }
 
         [Test]
@@ -76,16 +77,16 @@ namespace BibtexImporter.Tests
                                                                                     url ="""",
                                                                                     abstract =""This abstract has comma{,} and double quotes syntax {""}bio-tech{""} how can this be fixed""}");
             
-            Assert.AreEqual(1, file.Entries.Count);
+            ClassicAssert.AreEqual(1, file.Entries.Count);
 
-            Assert.AreEqual(file.Entries.ToList()[0].Key, "ChgfgA");
-            Assert.AreEqual(file.Entries.ToList()[0].Type, "Article");
+            ClassicAssert.AreEqual(file.Entries.ToList()[0].Key, "ChgfgA");
+            ClassicAssert.AreEqual(file.Entries.ToList()[0].Type, "Article");
 
             Dictionary<string, string> tags = file.Entries.ToList()[0].Tags;
-            Assert.AreEqual(11, tags.Count);
-            Assert.AreEqual("Author 1, Author 2", tags["author"]);
-            Assert.AreEqual("this text should be in double quotes {\"}bio-tech{\"}", tags["title"]);
-            Assert.AreEqual("This abstract has comma{,} and double quotes syntax {\"}bio-tech{\"} how can this be fixed", tags["abstract"]);
+            ClassicAssert.AreEqual(11, tags.Count);
+            ClassicAssert.AreEqual("Author 1, Author 2", tags["author"]);
+            ClassicAssert.AreEqual("this text should be in double quotes {\"}bio-tech{\"}", tags["title"]);
+            ClassicAssert.AreEqual("This abstract has comma{,} and double quotes syntax {\"}bio-tech{\"} how can this be fixed", tags["abstract"]);
         }
 
         [Test]
@@ -95,7 +96,7 @@ namespace BibtexImporter.Tests
 
             BibtexFile file = BibtexLibrary.BibtexImporter.FromString(fileContent);
 
-            Assert.AreEqual(3, file.Entries.Count);
+            ClassicAssert.AreEqual(3, file.Entries.Count);
         }
 
         [Test]
@@ -105,7 +106,7 @@ namespace BibtexImporter.Tests
 
             BibtexFile file = BibtexLibrary.BibtexImporter.FromString(fileContent);
 
-            Assert.AreEqual(1, file.Entries.Count);
+            ClassicAssert.AreEqual(1, file.Entries.Count);
         }
 
         [Test]
@@ -115,7 +116,7 @@ namespace BibtexImporter.Tests
 
             BibtexFile file = BibtexLibrary.BibtexImporter.FromString(fileContent);
 
-            Assert.AreEqual(1, file.Entries.Count);
+            ClassicAssert.AreEqual(1, file.Entries.Count);
         }
 
 
@@ -126,7 +127,7 @@ namespace BibtexImporter.Tests
 
             BibtexFile file = BibtexLibrary.BibtexImporter.FromString(fileContent);
 
-            Assert.AreEqual(5, file.Entries.Count);
+            ClassicAssert.AreEqual(5, file.Entries.Count);
         }
 
         /**
@@ -137,7 +138,7 @@ namespace BibtexImporter.Tests
 
             BibtexFile file = BibtexLibrary.BibtexImporter.FromString(fileContent);
 
-            Assert.AreEqual(1, file.Entries.Count);
+            ClassicAssert.AreEqual(1, file.Entries.Count);
         }
         */
     }
