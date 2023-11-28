@@ -3,7 +3,7 @@ A .Net library for working with bibtex files. Contains custom parser for reading
 
 ### Prerequisites
 
-- .NET framework 4 or higher
+- .NET Core 8
 
 ### Build status
 
